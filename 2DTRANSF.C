@@ -1,0 +1,23 @@
+#include<conio.h>
+#include<graphics.h>
+
+void main(){
+int gm=DETECT,gd;
+int co_ords[1][4],trans[1][4];  //one row two cols
+
+initgraph(&gm,&gd,"C:\\TurboC3\\BGI");
+
+printf("ENTER CORDINATES X annd Y : ");
+scanf("%d %d %d %d",&co_ords[0][0],&co_ords[0][1],&co_ords[0][2],&co_ords[0][3]);
+line(co_ords[0][0],co_ords[0][1],co_ords[0][2],co_ords[0][3]);
+printf("\nENTER Values to translate the obj : ");
+scanf("%3d %3d %3d %3d",&trans[0][0],&trans[0][1],&trans[0][2],&trans[0][3]);
+
+co_ords[0][0]+=trans[0][0];   //x1+=trans x
+co_ords[0][1]+=trans[0][1];   //y1+=trans y
+co_ords[0][2]+=trans[0][2];
+co_ords[0][3]+=trans[0][3];
+line(co_ords[0][0],co_ords[0][1],co_ords[0][2],co_ords[0][3]);
+getch();
+
+}

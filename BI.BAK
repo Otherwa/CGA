@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<conio.h>
+int binarySearch(int arr[10], int lo, int x, int hi)
+{
+    if (hi >= lo) {
+	int mid =(lo+hi)/2;
+	if (arr[mid] == x){
+	    return mid;
+	    }
+	else if (arr[mid] > x){
+	    return binarySearch(arr, lo,x, mid-1);
+	    }
+	else{
+	return binarySearch(arr, mid+1, x, hi);
+	}
+    }
+    return -1;
+}
+
+int main()
+{
+    int arr[10] = { 2, 3, 4, 10, 40 };
+    int n = 5,x,i,result;
+    clrscr();
+    printf("\nArray ele = ");
+    for (i=0;i<n;i++){
+    printf(" %d ",arr[i]);
+    }
+    printf("\nELEMNT TO SERACH =");
+    scanf("%d",&x);
+    result = binarySearch(arr, 0,x,n-1);
+    if(result == -1){
+    printf("Element is not present in array");
+    }
+    else{
+    printf("Element is present at index %d",result);
+    }
+    getch();
+    return 0;
+}

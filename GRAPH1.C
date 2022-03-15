@@ -1,0 +1,49 @@
+
+#include <graphics.h>
+#include <conio.h>
+int main()
+{
+int gnd = DETECT,gmaar,i;
+int point[]={324,297,417,362,380,472,266,472,231,363,324,297};
+initgraph(&gnd,&gmaar,"C:\\TurboC3\\BGI");
+setcolor(RED);
+setbkcolor(BLACK);
+line(100,100,200,100);
+line(100,100,100,200);
+line(100,200,200,200);
+line(200,200,200,100);
+line(100,100,200,200);
+line(100,200,200,100);
+setcolor(YELLOW);
+circle(150,150,50);
+setcolor(WHITE);
+outtext("NOICE");
+outtextxy(135,250,"NICE");
+setcolor(1);
+arc(200,200,0,90,50);
+arc(100,100,180,270,50);
+bar(280,280,300,300);
+bar3d(300,300,400,400,20,1);
+circle(250,250,50);
+setcolor(RED);
+//
+for(i=10;i<400;i++){
+circle(250,250,i/10);
+delay(5);
+}
+for(i=10;i<400;i++){
+setcolor(0);
+circle(250,250,i/10);
+delay(10);
+}
+//
+for(i=0;i<100;i++){
+setcolor(i/10);
+drawpoly(6,point);
+floodfill(320,392,i/10);
+delay(10);
+}
+getch();
+closegraph();
+return 0;
+}

@@ -1,0 +1,9 @@
+#include<stdio.h>
+#inlcude<conio.h>
+#inlcude<graphics.h>
+void main(){
+int gm=DETECT,gd;
+initgraph(&gd,&gm,"C://TURBOC3//BGI")
+
+
+}

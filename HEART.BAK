@@ -1,0 +1,30 @@
+#include<conio.h>
+#include<graphics.h>
+#include<stdlib.h>
+void main(){
+int gm=DETECT ,gd,i,x,y,j;
+initgraph(&gm,&gd,"C:\\TurboC3\\BGI");
+setcolor(WHITE);
+x=getmaxx();
+y=getmaxy();
+for(i=0;i<400;i=i+1){
+setcolor(BLUE);
+outtextxy(random(x),random(y),"|");
+outtextxy(random(x),random(y),"|");
+setcolor(WHITE);
+line(0,444,639,444);
+circle(121+i,410,34);
+setfillstyle(2,2);
+floodfill(121+i,410,WHITE);
+setfillstyle(2,3);
+circle(167+i,379,20);
+floodfill(168+i,379,WHITE);
+delay(30);
+if(i==200){
+outtext("FUCK it Perpendicular LEarning");
+}
+}
+delay(100);
+getch();
+
+}

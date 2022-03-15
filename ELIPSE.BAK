@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+void main(){
+int gm = DETECT,gd,i,j;
+float rx,ry,x,y,a,b;
+float p1,p2;
+initgraph(&gm,&gd,"C:\\TurboC3\\BGI");
+printf("Enter x and y co-ords of ellipse\n");
+scanf("%f %f",&b,&a);
+printf("Enter rx and ry values for ellipse\n");
+scanf("%f %f",&rx,&ry);
+x = 0; y = ry;
+//region 1 done
+
+p1 = (ry*ry) + (rx*rx)/4 - (ry*rx*rx);
+while((2*ry*ry*x) <= (2*rx*rx*y)){
+delay(5);
+x++;
+putpixel(a+x,b+y,2);
+putpixel(a-x,b+y,2);
+putpixel(a+x,b-y,2);
+putpixel(a-x,b-y,2);
+if(p1<=0){
+p1+=(2*ry*ry*x)+(ry*ry);
+}
+else{
+y--;
+p1+=(2*ry*ry*x)-(2*rx*rx*y)+(ry*ry);
+}
+}
+//region 2
+p2 = ((ry*ry)*(x+1/2)*(x+1/2)) + (rx*rx*(y-1)*(y-1)) - (rx*rx*ry*ry);
+//while((2*ry*ry*x) <= (2*rx*rx*y)){   //error slope indedx y > = 0 coorect source geeks
+while(y >= 0){
+delay(5);
+putpixel(a+x,b+y,2);
+putpixel(a-x,b+y,2);
+putpixel(a+x,b-y,2);
+putpixel(a-x,b-y,2);
+if(p2>0){
+p2=p2-(2*rx*rx*y) + (rx*rx);
+y--;
+}
+else{
+p2=p2+(2*ry*ry*x) + (rx * rx) - (2*rx*rx*y);
+x++;
+y--;
+}
+
+}
+getch();
+closegraph();
+}

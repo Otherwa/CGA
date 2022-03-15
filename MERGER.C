@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include<conio.h>
+
+int a[11] = {10,14,19,3,26,27,31,33,35,42};
+int b[10];
+int max = 9;
+
+void merging(int low, int mid, int high) {
+   int l1, l2, i;
+
+   for(l1 = low, l2 = mid + 1, i = low; l1 <= mid && l2 <= high; i++) {
+      if(a[l1] <= a[l2]){
+	 b[i] = a[l1];
+	 l1++;
+	 }
+      else            {
+	 b[i] = a[l2];
+	 l2++;
+	 }
+
+   }
+
+   while(l1 <= mid){
+      b[i] = a[l1];
+	 i++;
+	 l1++;
+		    }
+
+   while(l2 <= high) {
+      b[i] = a[l2];
+      i++;l2++;
+      }
+   for(i = low; i <= high; i++){
+      a[i] = b[i];
+      }
+}
+
+void mersort(int low, int high) {
+   int mid;
+   if(low < high) {
+      mid = (low + high)/2;
+      mersort(low, mid);
+      mersort(mid+1,high);
+      merging(low,mid,high);
+   }
+    else
+   {
+      return 0;
+   }
+}
+
+void main() {
+   int i;
+   clrscr();
+   printf("\nArry =");
+
+   for(i = 0; i <= max; i++){
+      printf(" %d ", a[i]);
+      }
+   mersort(0, max);
+   printf("\n\n");
+   printf("\nMerge Sorted");
+
+   for(i = 0; i <= max; i++) {
+      printf(" %d ", a[i]); }
+   getch();
+}

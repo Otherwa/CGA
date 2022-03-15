@@ -1,0 +1,98 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+struct node {
+int data;
+struct node *next;
+} *head;
+
+void reverse(struct node **h_ref){
+struct node *prev =NULL;
+struct node *current=*h_ref;
+struct node *post =NULL;
+
+while(current !=NULL){
+post=current->next;
+current->next=prev;
+prev=current;
+current=post;
+}
+*h_ref=prev;
+}
+
+
+void create_list(int n){
+struct node *newnde;
+struct node *temp;
+int data_r,i;
+
+head=(struct node *)malloc(sizeof(struct node));
+if(head==NULL){
+printf("\nNo meme avalaible bye");
+}
+printf("\ndata in node 1 = ");
+scanf("%d",&data_r);
+head->data=data_r;
+head->next=NULL;
+temp = head;
+
+for(i=2;i<=n;i++){
+newnde=(struct node *)malloc(sizeof(struct node));
+printf("data in node %d = ",i);
+scanf("%d",&data_r);
+newnde->data=data_r;
+newnde->next=NULL;
+temp->next=newnde;
+temp=temp->next;
+}
+	}
+
+void traverse(){
+
+struct node *temp;
+int j=0;
+if(head==NULL){
+printf("\nLinked list is Empty");
+}
+
+temp = head;
+while(temp!=NULL){
+printf("%d data in node %d\n",temp->data,j+1);
+j++;
+temp=temp->next;
+
+}
+	}
+
+void main(){
+int n,opt,flag=0;
+clrscr();
+printf("\nnumber of nodes in Linked LIst = ");
+scanf("%d",&n);
+create_list(n);
+printf("1 for traverse 2 for reverse 3 exit");
+while(flag==0){
+
+printf("\nenter option =");
+scanf("%d",&opt);
+
+switch(opt){
+case 1:
+traverse();
+break;
+
+case 2:
+reverse(&head);
+break;
+
+case 3:
+flag++;
+break;
+
+default:
+printf("Invalid");
+break;
+}
+	       }
+	}

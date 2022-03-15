@@ -1,0 +1,147 @@
+#include<stdio.h>
+#include<conio.h>
+
+int Dqww[20];
+int size=20;
+int end1=-1;
+int end2=-1;
+
+void disp(){
+int i;
+if(end1==-1 && end2==-1){
+printf("\nQueue underflow");
+
+}
+//else if(end1==end2){
+//printf("\n Queue flow");
+//}
+else{
+printf("\nDequeue elements = ");
+for(i=end1;i<end2;i++){
+printf(" %d ",Dqww[i]);
+}
+
+	}
+
+}
+
+void insrt()
+{
+int frm,data;
+if(end1==-1&&end2==-1){
+end1=0;end2=0;
+}
+printf("\nInserrt data from\n1 for end1\n2 for end2\n");
+scanf("%d",&frm);
+
+if(frm==1){
+if(end1==0){
+printf("\nnot possible end1 boundry limit");
+return;
+}
+else{
+printf("\nenter the element = ");
+scanf("%d",&data);
+end1=end1-1;
+Dqww[end1]=data;
+printf("\ndata entered %d at %d",Dqww[end1],end1);
+}
+
+}
+
+else{
+if(end2==size-1){
+printf("\noverflow not enough size");
+return;
+}
+else{
+printf("\n enter data = ");
+scanf("%d",&data);
+Dqww[end2]=data;
+printf("\n data entered %d at %d ",Dqww[end2],end2);
+end2++;
+}
+printf("\n\n%d %d",end1,end2);
+}
+
+
+
+	}
+
+void dele(){
+int frm;
+if(end1==-1&&end2==-1){
+printf("\n Qwuee underflow ");
+return;
+}
+else if(end1==end2){
+printf("\nnot possible");
+return;
+}
+printf("\n frm which side to del elem 1 for end1\n 2 for end 2 =");
+scanf("%d",&frm);
+if(frm==1){
+if(end1==-1){
+printf("Qweueue underflow not possible");
+}
+else{
+printf("element dele ted %d at pos %d",Dqww[end1],end1);
+end1++;
+}
+}
+
+else{
+if(end2==-1){
+printf("\n underflow ");
+}
+else if(end2==end1){
+printf("\nnot possible");
+}
+else{
+end2--;
+printf("element deleted %d at %d pos",Dqww[end2],end2);
+}
+}
+
+printf("\n%d %d",end1,end2);
+	}
+
+
+
+void main(){
+int opt;
+int flag=0;
+clrscr();
+printf("\nDqwww\n");
+while(flag==0)
+{
+printf("\n main end1 end 2\n%d %d\n",end1,end2);
+printf("\n1 for insert \n2 for delete \n3 for display\n4 for exit\n");
+scanf("%d",&opt);
+switch(opt){
+
+case 1:
+insrt();
+break;
+
+case 2:
+dele();
+break;
+
+case 3:
+disp();
+break;
+
+case 4:
+flag=1;
+break;
+
+default:
+printf("\n Invalid try agian");
+break;
+}
+}
+getch();
+return 0;
+}
+

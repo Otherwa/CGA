@@ -1,0 +1,28 @@
+#include<conio.h>
+#include<graphics.h>
+#include<stdlib.h>
+int x = 0;
+void matrix2d(int x int y){
+if(x <= 10){
+matrix2d(x+5,y+5);
+}
+x++;
+for(i=0;i<=(479*1);i++){
+delay(5);
+setcolor(BLACK);
+outtextxy(12,-24+(i-1),"*((!*^(*#^!!*#^_#^*^)#&!&(!@)!(&(_&@!(_&@_&SAGUIGS!*(Y!*Y@*)!@)*^!@N SUH{O!**YWO@");
+setcolor(LIGHTGREEN);
+outtextxy(12,-24+i,"*((!*^(*#^!!*#^_#^*^)#&!&(!@)!(&(_&@!(_&@_&SAGUIGS!*(Y!*Y@*)!@)*^!@N SUH{O!**YWO@");
+}
+}
+
+void main(){
+int gm=DETECT ,gd,i,x,y,j=479;
+initgraph(&gm,&gd,"C:\\TurboC3\\BGI");
+setbkcolor(BLACK);
+setcolor(LIGHTGREEN);
+settextstyle(0,1,1);
+matrix2d(100,100);
+getch();
+closegraph();
+}

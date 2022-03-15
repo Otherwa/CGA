@@ -1,0 +1,90 @@
+#include<stdio.h>
+#include<conio.h>
+
+int Qww[3],size=3;
+int frt=-1;
+int rer=-1;
+
+void insert(int ele){
+if(frt==-1&&rer==-1){
+frt=0;
+rer=0;
+Qww[rer]=ele;
+printf("\n\nEle added %d at index %d\n",Qww[rer],rer);
+}
+
+else if((rer+1)%size==frt){
+printf("\n\nFUll no space available\n");
+}
+
+else{
+rer=(rer+1)%size;
+Qww[rer]=ele;
+printf("\n\nEle %d added at %d index\n",Qww[rer],rer);
+}
+
+}
+
+void dele(){
+if(frt==-1&&rer==-1){
+printf("\n\nQueue Underflow Already empty");
+}
+else if(frt==rer){
+printf("\nEle deleted is %d at index %d ",Qww[frt],frt);
+frt=-1;
+rer=-1;
+}
+else{
+printf("\n");
+printf("\nEle deleted is %d at index %d",Qww[frt],frt);
+frt=(frt+1)%size;
+}
+}
+
+void disp(){
+int i;
+if(frt==0&&rer==0){
+printf("|n Queue Empty");
+}
+else{
+printf("\n0Queue =");
+for(i=frt;i!=rer;i=(i+1)%size){
+printf(" %d ",Qww[i]);
+}
+printf("%d",Qww[i]);
+printf("\n\nindex %d is rer index %d is frt\n",rer,frt);
+}
+}
+
+
+void main(){
+int opt,flag=0,data;
+clrscr();
+while(flag==0){
+printf("\n1 for insert\n2 for delete\n3 for display\n4 to exit\n\n");
+scanf("%d",&opt);
+switch(opt){
+case 1:
+printf("\n Enter ele in Queue = ");
+scanf("%d",&data);
+insert(data);
+break;
+
+case 2:
+dele();
+break;
+
+case 3:
+disp();
+break;
+
+case 4:
+flag=1;
+break;
+}
+
+}
+
+
+getch();
+}

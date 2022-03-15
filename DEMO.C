@@ -1,0 +1,70 @@
+#include<conio.h>
+#include<graphics.h>
+#include<stdlib.h>
+void main(){
+int gm=DETECT ,gd,i,x,y,j;
+initgraph(&gm,&gd,"C:\\TurboC3\\BGI");
+x=getmaxx();
+y=getmaxy();
+printf("%d x %d",getmaxx(),getmaxy());
+
+for(i=0;i<82;i++){
+setcolor(WHITE);
+delay(17);
+line(0,471,52,455);
+line(52,455,115,438);
+line(115,438,148,424);
+line(148,424,182,429);
+line(182,429,222,416);
+line(222,416,273,411);
+line(273,411,305,395);
+line(305,395,401,393);
+line(401,393,444,386);//right junc point mount 1
+line(444,386,471,273);
+line(471,273,513,384);
+line(513,384,555,187);
+line(555,187,605,361); //end mount 1
+line(591,313,621,192);
+line(621,192,639,236);
+setfillstyle(1,6);
+floodfill(374,419,WHITE);
+line(0,313,34,319);
+line(34,319,86,180);
+line(86,180,110,328);//mount 3 3 interset range 3
+line(98,253,120,212);//range 2
+line(120,212,139,327);
+line(95,328,186,325);//range base
+line(186,325,221,322);
+line(221,322,259,346);
+line(259,346,304,357);
+line(304,357,354,360);
+line(354,360,386,370);
+line(386,370,444,486);//intersect 1
+setfillstyle(9,1);
+floodfill(188,380,WHITE);
+setfillstyle(9,9);
+floodfill(113,282,WHITE);
+delay(10);
+//
+setcolor(YELLOW);
+arc(324,342-i,-21-i,180+i,69);
+delay(3);
+setcolor(BLACK);
+arc(324,342-(i-1),-21-i,180+i,69);
+setcolor(YELLOW);
+line(240,312-i,216,298-i);
+setcolor(BLACK);
+line(240,312-(i-1),216,298-(i-1));
+
+// paus
+/*delay(20);
+setcolor(WHITE);
+outtextxy(random(x),random(y),"|");
+*/
+}
+setcolor(YELLOW);
+circle(324,260,70);
+setfillstyle(9,YELLOW);
+floodfill(324,269,YELLOW);
+getch();
+}

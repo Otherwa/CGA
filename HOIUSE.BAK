@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<graphics.h>
+#include<math.h>
+void main()
+{
+int gd=DETECT,gm,x,y;
+int house_base[4] = {100,100,200,200};
+int house_up[8] = {100,100,150,50,150,50,200,100};
+int scaling_factor;
+
+initgraph(&gd, &gm, "C:\\TURBOC3\\BGI");
+rectangle(house_base[0],house_base[1],house_base[2],house_base[3]);
+line(house_up[0],house_up[1],house_up[2],house_up[3]);
+line(house_up[4],house_up[5],house_up[6],house_up[7]);
+printf("Enter Scalling size \n");
+scanf("%d",&scaling_factor);
+printf("After scalling");
+for(x=0;x<4;x++){
+house_base[x]=house_base[x] * scaling_factor;
+}
+for(x=0;x<8;x++){
+house_up[x]=house_up[x] * scaling_factor;
+}
+
+rectangle(house_base[0],house_base[1],house_base[2],house_base[3]);
+line(house_up[0],house_up[1],house_up[2],house_up[3]);
+line(house_up[4],house_up[5],house_up[6],house_up[7]);
+
+getch();
+}
